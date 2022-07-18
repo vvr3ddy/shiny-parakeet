@@ -29,7 +29,9 @@ filters.command("trigger", async (ctx) => {
         if(isNaN(count)){
             throw new Error('Invalid Format!');
         }
-        ctx.reply(`Message sent by: ${ctx.msg.reply_to_message?.from?.id}, who's basically ${ctx.msg.reply_to_message.from?.first_name} ${ctx.msg.reply_to_message.from?.last_name}`);
+        const botMessage = await ctx.reply(`Message sent by: ${ctx.msg.reply_to_message?.from?.id}, who's basically ${ctx.msg.reply_to_message.from?.first_name} ${ctx.msg.reply_to_message.from?.last_name}`);
+        // TODO: use the editMessageText option to notify of the trigger saved successfully.
+        await bot.api.editMessageText(ctx.msg.chat.id, botMessage.message_id, "Text Changed");
     } catch (error) {
         if (error instanceof Error)
             await ctx.reply(error.message);
