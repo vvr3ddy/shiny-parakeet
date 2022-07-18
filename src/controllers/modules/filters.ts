@@ -42,9 +42,9 @@ filters.command("trigger", async (ctx) => {
         const triggeredUser: TriggeredUser = new TriggeredUser(userName,userId, count,message);
         // TODO: Save the user to a storage space. Probably a JSON file, or a DB.
 
-        const botMessage = await ctx.reply(`Captured the following: ${triggeredUser}`);
+        const botMessage = await ctx.reply(`Captured the Request`);
         // TODO: use the editMessageText option to notify of the trigger saved successfully.
-        await bot.api.editMessageText(ctx.msg.chat.id, botMessage.message_id, "Text Changed");
+        await bot.api.editMessageText(ctx.msg.chat.id, botMessage.message_id, `Request Details: \n ${triggeredUser} `);
     } catch (error) {
         if (error instanceof Error)
             await ctx.reply(error.message);
