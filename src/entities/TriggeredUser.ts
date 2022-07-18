@@ -1,7 +1,14 @@
+import { Column, Entity } from "typeorm";
+
+@Entity()
 export class TriggeredUser {
+    @Column()
     private _userName: string;
+    @Column()
     private _userId: number;
+    @Column()
     private _count: number;
+    @Column()
     private _message: string;
     
     constructor(userName: string, userId: number, count: number, message: string) {
