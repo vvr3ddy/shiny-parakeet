@@ -1,5 +1,5 @@
 import { Composer } from "grammy";
-import { bot } from "../../bot";
+import { bot } from "../../../bot";
 
 export const helpers = new Composer();
 
