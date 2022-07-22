@@ -10,10 +10,3 @@ export const BotDataSource = new DataSource({
     database: process.env["DB_NAME"],
 })
 
-BotDataSource.initialize()
-    .then(()=>{
-        console.log("Data Source has been initialized!")
-    })
-    .catch(async (err)=>{
-        console.error("Error during Data source Initialization", err);
-    })

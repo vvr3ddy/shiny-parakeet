@@ -1,14 +1,14 @@
 import { Column, Entity } from "typeorm";
 
-@Entity()
+@Entity("TriggeredUser")
 export class TriggeredUser {
-    @Column()
+    @Column("varchar2",{'name':'userName'})
     private _userName: string;
-    @Column()
+    @Column("int",{'name':'userId'})
     private _userId: number;
-    @Column()
+    @Column("int",{'name':'msgCount'})
     private _count: number;
-    @Column()
+    @Column("varchar2",{'name':'message'})
     private _message: string;
     
     constructor(userName: string, userId: number, count: number, message: string) {
